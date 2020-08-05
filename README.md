@@ -7,16 +7,17 @@ This repo follows the [terraform standard module structure](https://www.terrafor
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "minimal" {
-  source = "git::https://github.com/Datatamer/terraform-template-repo?ref=0.1.0"
+  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2?ref=0.1.0"
 }
 ```
 ## Minimal
 Smallest complete fully working example. This example might require extra resources to run the example.
-- [Minimal](https://github.com/Datatamer/terraform-template-repo/tree/master/examples/minimal)
+- [Minimal](https://github.com/Datatamer/terraform-azure-adls-gen2/tree/master/examples/minimal)
 
 # Resources Created
 This modules creates:
-* a null resource
+* 1 Azure storage account
+* 1 ADLS Gen2 filesystem container
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -29,20 +30,34 @@ This modules creates:
 
 | Name | Version |
 |------|---------|
-| null | n/a |
+| azurerm | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| example | Example variable. | `string` | `"default value"` | no |
+| name | Name of ADLS Gen2 instance (lowercase and numbers only, must be fewer than 18 characters.) | `string` | n/a | yes |
+| resource\_group\_location | Location of resource group | `string` | n/a | yes |
+| resource\_group\_name | Name of resource group | `string` | n/a | yes |
+| access\_tier | Storage account access tier | `string` | `"Hot"` | no |
+| account\_kind | Storage account kind | `string` | `"StorageV2"` | no |
+| allowed\_ips | List of allowed IPs | `list(string)` | `null` | no |
+| allowed\_subnet\_ids | List of allowed subnet IDs. Subnets must have Microsoft.Storage service endpoint | `list(string)` | `null` | no |
+| fs\_properties | Map of additional properties to assign to the Gen2 filesystem | `map(string)` | `null` | no |
+| replication\_type | Storage account replication type | `string` | `"RAGRS"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| example\_value | Example variable. |
-| null\_resource\_id | An arbitrary value that changes each time the resource is replaced. |
+| gen2\_fs\_id | ID of the ADLS Gen2 filesystem |
+| gen2\_fs\_name | Name of the ADLS Gen2 filesystem |
+| storage\_account\_id | ID of the ADLS Gen2 storage account |
+| storage\_account\_name | Name of the ADLS Gen2 storage account |
+| storage\_account\_primary\_access\_key | Primary access key for the ADLS Gen2 storage account |
+| storage\_account\_primary\_connection\_string | Primary connection string for the ADLS Gen2 storage account |
+| storage\_account\_primary\_dfs\_enpoint | Primary DFS endpoint for the ADLS Gen2 storage account |
+| storage\_account\_primary\_dfs\_host | Hostname and port for DFS storage for the ADLS Gen2 storage account |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -50,6 +65,12 @@ This modules creates:
 This repo is based on:
 * [terraform standard module structure](https://www.terraform.io/docs/modules/index.html#standard-module-structure)
 * [templated terraform module](https://github.com/tmknom/template-terraform-module)
+
+Storage account redundancy:
+https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy
+
+ADLS Gen2 storage accounts must be Standard tier:
+https://www.terraform.io/docs/providers/azurerm/r/storage_account.html#is_hns_enabled
 
 # Development
 ## Generating Docs
