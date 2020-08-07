@@ -19,18 +19,6 @@ variable "fs_properties" {
   default     = null
 }
 
-variable "allowed_ips" {
-  description = "List of allowed IPs"
-  type        = list(string)
-  default     = null
-}
-
-variable "allowed_subnet_ids" {
-  description = "List of allowed subnet IDs. Subnets must have Microsoft.Storage service endpoint"
-  type        = list(string)
-  default     = null
-}
-
 variable "replication_type" {
   description = "Storage account replication type"
   type        = string

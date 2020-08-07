@@ -20,12 +20,3 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "adls-gen2" {
 
   properties = var.fs_properties
 }
-
-resource "azurerm_storage_account_network_rules" "adls-gen2-rules" {
-  storage_account_name       = azurerm_storage_account.adls-gen2-storage.name
-  resource_group_name        = var.resource_group_name
-  default_action             = "Deny"
-  bypass                     = ["AzureServices"]
-  ip_rules                   = var.allowed_ips
-  virtual_network_subnet_ids = var.allowed_subnet_ids
-}

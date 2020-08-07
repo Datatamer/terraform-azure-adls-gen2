@@ -31,6 +31,13 @@ module "minimal" {
   name                    = "adlsgen2tamr"
   resource_group_name     = azurerm_resource_group.adls-gen2-rg.name
   resource_group_location = azurerm_resource_group.adls-gen2-rg.location
-  allowed_ips             = ["4.3.2.1"]
-  allowed_subnet_ids      = [azurerm_subnet.example-subnet.id]
+}
+
+module "rules" {
+  source = "../../modules/azure-storage-account-network-rules"
+
+  storage_account_name = module.minimal.storage_account_name
+  resource_group_name  = azurerm_resource_group.adls-gen2-rg.name
+  allowed_ips          = ["4.3.2.1"]
+  allowed_subnet_ids   = [azurerm_subnet.example-subnet.id]
 }

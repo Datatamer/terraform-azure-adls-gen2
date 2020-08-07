@@ -41,8 +41,6 @@ This modules creates:
 | resource\_group\_name | Name of resource group | `string` | n/a | yes |
 | access\_tier | Storage account access tier | `string` | `"Hot"` | no |
 | account\_kind | Storage account kind | `string` | `"StorageV2"` | no |
-| allowed\_ips | List of allowed IPs | `list(string)` | `null` | no |
-| allowed\_subnet\_ids | List of allowed subnet IDs. Subnets must have Microsoft.Storage service endpoint | `list(string)` | `null` | no |
 | fs\_properties | Map of additional properties to assign to the Gen2 filesystem | `map(string)` | `null` | no |
 | replication\_type | Storage account replication type | `string` | `"RAGRS"` | no |
 
