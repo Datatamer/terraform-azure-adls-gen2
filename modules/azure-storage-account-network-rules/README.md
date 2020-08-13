@@ -53,6 +53,8 @@ This modules creates:
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| network\_rules\_id | ID of the ADLS Gen2 storage account network rules |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

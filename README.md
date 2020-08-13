@@ -8,6 +8,10 @@ Inline example implementation of the module.  This is the most basic example of 
 ```
 module "minimal" {
   source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2?ref=0.1.0"
+
+  name = "tamradlsgen2"
+  resource_group_name = "example-resource-group"
+  resource_group_location = "East US 2"
 }
 ```
 ## Minimal
