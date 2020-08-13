@@ -1,11 +1,15 @@
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| azurerm | =2.11.0 |
 
 ## Providers
 
-No provider.
+| Name | Version |
+|------|---------|
+| azurerm | =2.11.0 |
 
 ## Inputs
 
@@ -15,7 +19,6 @@ No input.
 
 | Name | Description |
 |------|-------------|
-| example\_value | Example variable. |
-| null\_resource\_id | An arbitrary value that changes each time the resource is replaced. |
+| gen2-module | All resources created by the ADLS Gen2 module |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
