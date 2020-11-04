@@ -1,4 +1,4 @@
-variable "name" {
+variable "instance_name" {
   description = "Name of ADLS Gen2 instance (lowercase and numbers only, must be fewer than 18 characters.)"
   type        = string
 }
