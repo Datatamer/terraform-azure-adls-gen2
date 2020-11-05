@@ -1,8 +1,8 @@
 resource "azurerm_storage_account" "adls-gen2-storage" {
   // Name must be lowercase and numbers only, must be fewer than 18 characters
-  name                = "${var.name}storage"
+  name                = "${var.instance_name}storage"
   resource_group_name = var.resource_group_name
-  location            = var.resource_group_location
+  location            = var.location
 
   account_replication_type = var.replication_type
   account_kind             = var.account_kind
@@ -15,7 +15,7 @@ resource "azurerm_storage_account" "adls-gen2-storage" {
 }
 
 resource "azurerm_storage_data_lake_gen2_filesystem" "adls-gen2" {
-  name               = var.name
+  name               = var.instance_name
   storage_account_id = azurerm_storage_account.adls-gen2-storage.id
 
   properties = var.fs_properties

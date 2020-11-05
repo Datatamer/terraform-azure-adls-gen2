@@ -28,9 +28,9 @@ resource "azurerm_subnet" "example-subnet" {
 module "minimal" {
   source = "../../"
 
-  name                    = "adlsgen2tamr"
-  resource_group_name     = azurerm_resource_group.adls-gen2-rg.name
-  resource_group_location = azurerm_resource_group.adls-gen2-rg.location
+  instance_name       = "adlsgen2tamr"
+  resource_group_name = azurerm_resource_group.adls-gen2-rg.name
+  location            = azurerm_resource_group.adls-gen2-rg.location
 }
 
 module "rules" {

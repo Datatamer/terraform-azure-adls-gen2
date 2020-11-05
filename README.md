@@ -7,11 +7,11 @@ This repo follows the [terraform standard module structure](https://www.terrafor
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "minimal" {
-  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2?ref=0.1.0"
+  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2?ref=0.2.0"
 
-  name = "tamradlsgen2"
+  instance_name = "tamradlsgen2"
   resource_group_name = "example-resource-group"
-  resource_group_location = "East US 2"
+  location = "East US 2"
 }
 ```
 ## Minimal
@@ -29,19 +29,20 @@ This modules creates:
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12 |
+| azurerm | >= 2.11.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| azurerm | n/a |
+| azurerm | >= 2.11.0 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| name | Name of ADLS Gen2 instance (lowercase and numbers only, must be fewer than 18 characters.) | `string` | n/a | yes |
-| resource\_group\_location | Location of resource group | `string` | n/a | yes |
+| instance\_name | Name of ADLS Gen2 instance (lowercase and numbers only, must be fewer than 18 characters.) | `string` | n/a | yes |
+| location | Location of resource group | `string` | n/a | yes |
 | resource\_group\_name | Name of resource group | `string` | n/a | yes |
 | access\_tier | Storage account access tier | `string` | `"Hot"` | no |
 | account\_kind | Storage account kind | `string` | `"StorageV2"` | no |
