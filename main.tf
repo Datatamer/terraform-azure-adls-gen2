@@ -2,7 +2,7 @@ resource "azurerm_storage_account" "adls-gen2-storage" {
   // Name must be lowercase and numbers only, must be fewer than 18 characters
   name                = "${var.instance_name}storage"
   resource_group_name = var.resource_group_name
-  location            = var.resource_group_location
+  location            = var.location
 
   account_replication_type = var.replication_type
   account_kind             = var.account_kind

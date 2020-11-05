@@ -11,7 +11,7 @@ module "minimal" {
 
   instance_name = "tamradlsgen2"
   resource_group_name = "example-resource-group"
-  resource_group_location = "East US 2"
+  location = "East US 2"
 }
 ```
 ## Minimal
@@ -41,7 +41,7 @@ This modules creates:
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | instance\_name | Name of ADLS Gen2 instance (lowercase and numbers only, must be fewer than 18 characters.) | `string` | n/a | yes |
-| resource\_group\_location | Location of resource group | `string` | n/a | yes |
+| location | Location of resource group | `string` | n/a | yes |
 | resource\_group\_name | Name of resource group | `string` | n/a | yes |
 | access\_tier | Storage account access tier | `string` | `"Hot"` | no |
 | account\_kind | Storage account kind | `string` | `"StorageV2"` | no |
