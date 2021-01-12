@@ -12,7 +12,7 @@ This terraform module creates a service principal scoped to a resource group
 main.tf:
 ```
 module "service-principal" {
-  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2.git//modules/azure-service-principal?ref=0.1.0"
+  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2.git//modules/azure-service-principal?ref=0.3.0"
 
   application_name       = "example-sp"
   resource_group_id      = azurerm_resource_group.adls-gen2-rg.id
