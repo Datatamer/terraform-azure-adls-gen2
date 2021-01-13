@@ -52,8 +52,8 @@ This modules creates:
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | application\_name | Name for application registration for the service principal | `string` | n/a | yes |
-| resource\_group\_id | ID of resource group for service principal scope | `string` | n/a | yes |
 | client\_secr\_expiration\_date | Expiration date of service principal secret formatted as a RFC3339 date string | `string` | `"2099-01-01T01:02:03Z"` | no |
+| role\_scopes | List of resource IDs to include in scope of role assignment | `list(string)` | <pre>[<br>  "WindowsAzureActiveDirectoryIntegratedApp"<br>]</pre> | no |
 | tags | List of addition tags to attach to the service principal | `list(string)` | `[]` | no |
 
 ## Outputs
