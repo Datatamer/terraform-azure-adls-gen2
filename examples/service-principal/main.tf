@@ -46,8 +46,8 @@ module "service-principal" {
   source = "../../modules/azure-service-principal"
 
   application_name            = "example-sp"
-  resource_group_id           = azurerm_resource_group.adls-gen2-rg.id
   client_secr_expiration_date = "2022-01-01T01:02:03Z"
+  role_scopes = [module.minimal.storage_account_id, azurerm_subnet.example-subnet.id]
 
   tags = ["sp-example-tag"]
 }

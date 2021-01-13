@@ -1,6 +1,6 @@
 # Tamr Azure Service Principal module
 
-This terraform module creates a service principal scoped to a resource group
+This terraform module creates a service principal
 
 ## Assumptions
 * A resource group exists
@@ -14,8 +14,8 @@ main.tf:
 module "service-principal" {
   source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2.git//modules/azure-service-principal?ref=0.3.0"
 
-  application_name       = "example-sp"
-  resource_group_id      = azurerm_resource_group.adls-gen2-rg.id
+  application_name            = "example-sp"
+  role_scopes                 = [azurerm_storage_account.adls-gen2-storage.id]
   client_secr_expiration_date = "2022-01-01T01:02:03Z"
 
   tags = ["sp-example-tag"]

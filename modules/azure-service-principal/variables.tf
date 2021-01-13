@@ -3,11 +3,6 @@ variable "application_name" {
   type        = string
 }
 
-variable "resource_group_id" {
-  description = "ID of resource group for service principal scope"
-  type        = string
-}
-
 variable "tags" {
   description = "List of addition tags to attach to the service principal"
   type        = list(string)
@@ -19,4 +14,9 @@ variable "client_secr_expiration_date" {
   description = "Expiration date of service principal secret formatted as a RFC3339 date string"
   type        = string
   default     = "2099-01-01T01:02:03Z"
+}
+
+variable "role_scopes" {
+  description = "List of resource IDs to include in scope of role assignment"
+  type        = list(string)
 }

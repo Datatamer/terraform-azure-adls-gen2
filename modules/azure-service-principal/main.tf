@@ -31,13 +31,17 @@ resource "azuread_service_principal" "adls-gen2-service-principal" {
 }
 
 resource "azurerm_role_assignment" "service-principal-role-assigment" {
-  scope                = var.resource_group_id
+  count = length(var.role_scopes)
+
+  scope                = var.role_scopes[count.index]
   role_definition_name = "Storage Account Contributor"
   principal_id         = azuread_service_principal.adls-gen2-service-principal.id
 }
 
 resource "azurerm_role_assignment" "service-principal-role-assigment2" {
-  scope                = var.resource_group_id
+  count = length(var.role_scopes)
+
+  scope                = var.role_scopes[count.index]
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = azuread_service_principal.adls-gen2-service-principal.id
 }
