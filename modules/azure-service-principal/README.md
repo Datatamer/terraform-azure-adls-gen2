@@ -28,7 +28,9 @@ Smallest complete fully working example with a service principal. This example m
 
 # Resources Created
 This modules creates:
+* An Azure app registration
 * A service principal
+* A service principal secret
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
