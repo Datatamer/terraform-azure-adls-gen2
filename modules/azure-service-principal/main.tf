@@ -21,13 +21,7 @@ resource "azuread_service_principal" "adls-gen2-service-principal" {
   application_id               = azuread_application.adls-gen2-application.application_id
   app_role_assignment_required = true
 
-  # Combine following with user-defined tags
-  tags = concat([
-    # "WindowsAzureActiveDirectoryIntegratedApp" is used to have this service principal show up in
-    # the list of Integrated Applicatins in the Admin Portal
-    "WindowsAzureActiveDirectoryIntegratedApp",
-    ],
-  var.tags)
+  tags = var.tags
 }
 
 resource "azurerm_role_assignment" "service-principal-role-assigment" {

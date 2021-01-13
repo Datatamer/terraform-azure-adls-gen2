@@ -19,4 +19,7 @@ variable "client_secr_expiration_date" {
 variable "role_scopes" {
   description = "List of resource IDs to include in scope of role assignment"
   type        = list(string)
+  # "WindowsAzureActiveDirectoryIntegratedApp" is used to have this service principal show up in
+  # the list of Integrated Applicatins in the Admin Portal. It is not required for functionality
+  default = ["WindowsAzureActiveDirectoryIntegratedApp"]
 }
