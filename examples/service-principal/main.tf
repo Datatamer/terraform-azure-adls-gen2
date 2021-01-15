@@ -38,7 +38,7 @@ module "rules" {
 
   storage_account_name = module.minimal.storage_account_name
   resource_group_name  = azurerm_resource_group.adls-gen2-rg.name
-  allowed_ips          = ["4.3.2.1", "73.238.153.146"]
+  allowed_ips          = ["4.3.2.1"]
   allowed_subnet_ids   = [azurerm_subnet.example-subnet.id]
 }
 
@@ -48,5 +48,5 @@ module "service-principal" {
   application_name            = "example-sp"
   client_secr_expiration_date = "2022-01-01T01:02:03Z"
   role_scopes                 = [module.minimal.storage_account_id]
-  tags = ["sp-example-tag"]
+  tags                        = ["sp-example-tag", "WindowsAzureActiveDirectoryIntegratedApp"]
 }
