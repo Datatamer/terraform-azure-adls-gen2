@@ -12,7 +12,7 @@ This terraform module creates Network Rules for an Azure storage account
 main.tf:
 ```
 module "storage_network_rules_module" {
-  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2.git//modules/azure-storage-account-network-rules?ref=1.0.0"
+  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2.git//modules/azure-storage-account-network-rules?ref=x.y.z"
 
   storage_account_name = "tamrExampleAdlsGen2
   resource_group_name = "exampleAdlsGen2ResourceGroup"

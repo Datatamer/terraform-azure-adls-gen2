@@ -12,7 +12,7 @@ This terraform module creates a service principal
 main.tf:
 ```
 module "service-principal" {
-  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2.git//modules/azure-service-principal?ref=1.0.0"
+  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2.git//modules/azure-service-principal?ref=x.y.z"
 
   application_name            = "example-sp"
   role_scopes                 = [azurerm_storage_account.adls-gen2-storage.id]
