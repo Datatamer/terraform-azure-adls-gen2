@@ -10,8 +10,8 @@ variable "tags" {
   It is not required for functionality.
   EOF
 
-  type        = list(string)
-  default     = ["WindowsAzureActiveDirectoryIntegratedApp"]
+  type    = list(string)
+  default = ["WindowsAzureActiveDirectoryIntegratedApp"]
 }
 
 # including the word "secret" in name fails security linting

@@ -1,8 +1,6 @@
 resource "azuread_application" "adls-gen2-application" {
-  name                       = var.application_name
-  available_to_other_tenants = false
-  oauth2_allow_implicit_flow = true
-  type                       = "native"
+  display_name     = var.application_name
+  sign_in_audience = "AzureADMyOrg"
 
   # Required resource blocks added via adding permissions from the portal
   # TODO: Learn more about these blocks, IDs are mysterious
@@ -13,6 +11,11 @@ resource "azuread_application" "adls-gen2-application" {
     resource_access {
       id   = "03e0da56-190b-40ad-a80c-ea378c433f7f"
       type = "Scope"
+    }
+  }
+  web {
+    implicit_grant {
+      access_token_issuance_enabled = true
     }
   }
 }
@@ -40,15 +43,9 @@ resource "azurerm_role_assignment" "service-principal-role-assigment2" {
   principal_id         = azuread_service_principal.adls-gen2-service-principal.id
 }
 
-resource "random_password" "principal-secret" {
-  length  = 64
-  special = true
-}
-
 resource "azuread_service_principal_password" "sp-secret" {
   service_principal_id = azuread_service_principal.adls-gen2-service-principal.id
-  description          = "For accessing ADLS Gen2"
-  value                = random_password.principal-secret.result
+  display_name         = "For accessing ADLS Gen2"
   end_date             = var.client_secr_expiration_date
 }
 

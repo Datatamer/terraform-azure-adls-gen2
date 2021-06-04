@@ -1,5 +1,9 @@
 # Tamr Terraform ADLS Gen2 module
 
+# v1.0.0 - June 1st 2021
+* Upgrade `azurerm` provider
+* Upgrade `azuread` provider
+
 # v0.3.0 - Jan 12 2021
 * Add optional service principal submodule and example
 

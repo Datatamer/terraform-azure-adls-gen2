@@ -7,7 +7,7 @@ This repo follows the [terraform standard module structure](https://www.terrafor
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "minimal" {
-  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2?ref=0.3.0"
+  source = "git::https://github.com/Datatamer/terraform-azure-adls-gen2?ref=x.y.z"
 
   instance_name = "tamradlsgen2"
   resource_group_name = "example-resource-group"
@@ -29,13 +29,13 @@ This modules creates:
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12 |
-| azurerm | >= 2.11.0 |
+| azurerm | >= 2.60.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| azurerm | >= 2.11.0 |
+| azurerm | >= 2.60.0 |
 
 ## Inputs
 
