@@ -50,6 +50,7 @@ This modules creates no new resources
 | end\_time | The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string | `string` | n/a | yes |
 | start\_time | The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string | `string` | n/a | yes |
 | storage\_account\_primary\_connection\_string | Primary connection string associated with the storage account for which the token will be created | `string` | n/a | yes |
+| delete\_allowed | Whether or not to give this token permission to delete blobs | `bool` | `false` | no |
 | signed\_version | Specifies the signed storage service version to use to authorize requests made with this account SAS | `string` | `"2017-07-29"` | no |
 
 ## Outputs

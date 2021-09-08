@@ -22,7 +22,7 @@ data "azurerm_storage_account_sas" "sas_token" {
   permissions {
     read    = true
     write   = true
-    delete  = false
+    delete  = var.delete_allowed
     list    = true
     add     = true
     create  = true
