@@ -41,3 +41,11 @@ module "rules" {
   allowed_ips          = ["4.3.2.1"]
   allowed_subnet_ids   = [azurerm_subnet.example-subnet.id]
 }
+
+module "sas-token" {
+  source = "../../modules/azure-sas-token"
+
+  storage_account_primary_connection_string = module.minimal.storage_account_primary_connection_string
+  start_time                                = "2021-01-1T00:00:00Z"
+  end_time                                  = "2021-12-31T00:00:00Z"
+}
